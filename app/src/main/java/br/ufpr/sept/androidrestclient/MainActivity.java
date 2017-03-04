@@ -15,27 +15,24 @@ public class MainActivity extends AppCompatActivity {
 
     TextView greetingIdText;
     TextView greetingContentText;
-
+    Button button;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        startViews();
 
-        greetingIdText = (TextView) findViewById(R.id.id_value);
-        greetingContentText = (TextView) findViewById(R.id.content_value);
-
-
-
-        final Button button = (Button) findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                greetingIdText.setText(R.string.id_value);
-                greetingContentText.setText(R.string.content_value);
                 new HttpRequestTask().execute();
             }
         });
+    }
 
-        new HttpRequestTask().execute();
+    private void startViews() {
+        greetingIdText = (TextView) findViewById(R.id.id_value);
+        greetingContentText = (TextView) findViewById(R.id.content_value);
+        button = (Button) findViewById(R.id.button);
     }
 
     private class HttpRequestTask extends AsyncTask<Void, Void, Greeting> {
@@ -45,8 +42,7 @@ public class MainActivity extends AppCompatActivity {
                 final String url = "http://rest-service.guides.spring.io/greeting";
                 RestTemplate restTemplate = new RestTemplate();
                 restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
-                Greeting greeting = restTemplate.getForObject(url, Greeting.class);
-                return greeting;
+                return restTemplate.getForObject(url, Greeting.class);
             } catch (Exception e) {
                 Log.e("MainActivity", e.getMessage(), e);
             }
@@ -60,5 +56,10 @@ public class MainActivity extends AppCompatActivity {
             greetingContentText.setText(greeting.getContent());
         }
 
+        @Override
+        protected void onPreExecute() {
+            greetingIdText.setText(R.string.id_value);
+            greetingContentText.setText(R.string.content_value);
+        }
     }
 }
