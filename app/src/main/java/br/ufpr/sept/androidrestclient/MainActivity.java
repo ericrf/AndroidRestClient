@@ -11,6 +11,7 @@ import android.widget.TextView;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
 
+
 public class MainActivity extends AppCompatActivity {
 
     TextView greetingIdText;
@@ -35,14 +36,14 @@ public class MainActivity extends AppCompatActivity {
         button = (Button) findViewById(R.id.button);
     }
 
-    private class HttpRequestTask extends AsyncTask<Void, Void, Greeting> {
+    private class HttpRequestTask extends AsyncTask<Void, Void, Aluno> {
         @Override
-        protected Greeting doInBackground(Void... params) {
+        protected Aluno doInBackground(Void... params) {
             try {
-                final String url = "http://rest-service.guides.spring.io/greeting";
+                final String url = "http://10.0.2.2:8080/alunos/1";
                 RestTemplate restTemplate = new RestTemplate();
                 restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
-                return restTemplate.getForObject(url, Greeting.class);
+                return restTemplate.getForObject(url, Aluno.class);
             } catch (Exception e) {
                 Log.e("MainActivity", e.getMessage(), e);
             }
@@ -51,15 +52,18 @@ public class MainActivity extends AppCompatActivity {
         }
 
         @Override
-        protected void onPostExecute(Greeting greeting) {
-            greetingIdText.setText(greeting.getId());
-            greetingContentText.setText(greeting.getContent());
+        protected void onPostExecute(Aluno aluno) {
+            Log.d("[ALUNO]", aluno.toString());
+            for(Endereco endereco : aluno.getEnderecos()){
+                Log.d("[ALUNO][ENDERECO]", endereco.toString());
+            }
         }
 
         @Override
         protected void onPreExecute() {
-            greetingIdText.setText(R.string.id_value);
-            greetingContentText.setText(R.string.content_value);
+            Log.d("[ALUNO]", "");
+
         }
     }
 }
+
