@@ -50,7 +50,19 @@ public class MainActivity extends AppCompatActivity {
 
         ((Button) findViewById(R.id.update)).setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                new UpdateRequestTask().execute();
+                UpdateRequestTask t = new UpdateRequestTask(){
+                    @Override
+                    protected void onPostExecute(Aluno aluno) {
+                        logarAluno(aluno);
+                    }
+
+                    @Override
+                    protected void onPreExecute() {
+                        Log.d("[HTTPREQUEST]","UpdateRequestTask");
+                    }
+                };
+
+                t.execute();
             }
         });
 
@@ -62,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    final String baseUrl = "http://10.0.2.2:8080/alunos/";
+    final String baseUrl = "https://soa-service.herokuapp.com/alunos/";
 
 
     private class DeleteRequestTask extends AsyncTask<Void, Void, Void> {
@@ -86,46 +98,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private class UpdateRequestTask extends AsyncTask<Void, Void, Aluno> {
-        @Override
-        protected Aluno doInBackground(Void... params) {
-            try {
-                Aluno aluno = new Aluno();
-                aluno.setMatricula(1);
-                aluno.setNome("Ana Paula Bail dos Santos");
-                aluno.setCpf("62461336490");
-                aluno.setIdade(27);
-                aluno.setEnderecos(Arrays.asList( new Endereco[]{
-                        new Endereco(1L, "Rua Acelino Grande", "1003", "casa", "Butiatuvinha", 82320390, "Curitiba", "Paraná"),
-                        new Endereco(2L, "Rua modificada", "1003", "casa", "Butiatuvinha", 82320390, "Curitiba", "Paraná")
-                }));
-
-                String url = baseUrl;
-                RestTemplate template = new RestTemplate();
-                template.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
-
-                HttpEntity<Aluno> requestEntity = new HttpEntity<Aluno>(aluno, new HttpHeaders());
-                HttpEntity<Aluno> response = template.exchange(url, HttpMethod.PUT, requestEntity, Aluno.class, new HashMap<String, String>());
-
-                return response.getBody();
-
-            } catch (Exception e) {
-                Log.e("MainActivity", e.getMessage(), e);
-            }
-
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(Aluno aluno) {
-            logarAluno(aluno);
-        }
-
-        @Override
-        protected void onPreExecute() {
-            Log.d("[HTTPREQUEST]","UpdateRequestTask");
-        }
-    }
 
     private class InsertRequestTask extends AsyncTask<Void, Void, Aluno> {
         @Override
