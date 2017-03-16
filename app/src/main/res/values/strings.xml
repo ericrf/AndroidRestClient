@@ -9,4 +9,5 @@
     <string name="action_update">Update 1</string>
     <string name="action_delete">Delete 1</string>
     <string name="action_insert">Save</string>
+    <string name="title_activity_formulario">FormularioActivity</string>
 </resources>

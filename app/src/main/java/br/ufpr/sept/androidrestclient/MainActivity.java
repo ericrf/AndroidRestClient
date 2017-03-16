@@ -1,5 +1,6 @@
 package br.ufpr.sept.androidrestclient;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
@@ -75,6 +76,11 @@ public class MainActivity extends AppCompatActivity {
 
 
     final String baseUrl = "https://soa-service.herokuapp.com/alunos/";
+
+    public void novoAluno(View view) {
+        Intent i = new Intent(this, FormularioActivity.class);
+        startActivity(i);
+    }
 
 
     private class DeleteRequestTask extends AsyncTask<Void, Void, Void> {
