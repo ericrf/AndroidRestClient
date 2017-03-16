@@ -1,4 +1,4 @@
-package br.ufpr.sept.androidrestclient;
+package br.ufpr.sept.androidrestclient.br.ufpr.sept.androidrestclient.domain;
 
 /**
  * Created by Eric on 08/03/2017.
