@@ -9,6 +9,5 @@
     <string name="action_update">Update 1</string>
     <string name="action_delete">Delete 1</string>
     <string name="action_insert">Save</string>
-    <string name="search_title">Buscar</string>
-    <string name="search_hint">Matricula</string>
+    <string name="title_activity_formulario">FormularioActivity</string>
 </resources>
