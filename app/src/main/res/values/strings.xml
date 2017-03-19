@@ -10,4 +10,23 @@
     <string name="action_delete">Delete 1</string>
     <string name="action_insert">Save</string>
     <string name="title_activity_formulario">FormularioActivity</string>
+    <string name="search_title">Busca</string>
+    <string name="search_hint">Matrícula</string>
+    <string name="app_label">Pesquisar</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="cep">CEP</string>
+    <string name="bairro">Bairro</string>
+    <string name="buscar">Buscar</string>
+    <string name="cpf">CPF</string>
+    <string name="cidade">Cidade</string>
+    <string name="complemento">Complemento</string>
+    <string name="estado">Estado</string>
+    <string name="idade">Idade</string>
+    <string name="logradouro">Logradouro</string>
+    <string name="nome">Nome</string>
+    <string name="numero">Numero</string>
+    <string name="title_activity_inserir_aluno">InserirAlunoActivity</string>
+    <string name="salvar">Salvar</string>
 </resources>

@@ -7,13 +7,13 @@ import br.ufpr.sept.androidrestclient.br.ufpr.sept.androidrestclient.domain.Alun
 /**
  * Created by Eric on 16/03/2017.
  */
-class FindAllRequestTask extends AbstractRequestTask<Void, Void, Aluno[]> {
+public class FindAllRequestTask extends AbstractRequestTask<Void, Void, Aluno[]> {
     @Override
     protected Aluno[] doInBackground(Void... params) {
         try {
             return createRestTemplate().getForObject(Constants.BASE_URL, Aluno[].class);
         } catch (Exception e) {
-            Log.e("MainActivity", e.getMessage(), e);
+            Log.e("FindAllRequestTask", e.getMessage(), e);
         }
 
         return null;

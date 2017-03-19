@@ -1,14 +1,14 @@
 package br.ufpr.sept.androidrestclient.br.ufpr.sept.androidrestclient.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * Created by Eric on 08/03/2017.
  */
 
-public class Endereco {
+public class EnderecoBuscaCEP {
     private long id;
+    private String tipoDeLogradouro;
     private String logradouro;
     private String numero;
     private String complemento;
@@ -17,9 +17,9 @@ public class Endereco {
     private String cidade;
     private String estado;
 
-    public Endereco() {}
+    public EnderecoBuscaCEP() {}
 
-    public Endereco(long id, String logradouro, String numero, String complemento, String bairro, int cep, String cidade, String estado) {
+    public EnderecoBuscaCEP(long id, String logradouro, String numero, String complemento, String bairro, int cep, String cidade, String estado) {
         this.id = id;
         this.logradouro = logradouro;
         this.numero = numero;
@@ -39,7 +39,7 @@ public class Endereco {
     }
 
     public String getLogradouro() {
-        return logradouro;
+        return (tipoDeLogradouro == null ? "" : tipoDeLogradouro) + " " + logradouro;
     }
 
     public void setLogradouro(String logradouro) {
@@ -108,4 +108,11 @@ public class Endereco {
                 '}';
     }
 
+    public String getTipoDeLogradouro() {
+        return tipoDeLogradouro;
+    }
+
+    public void setTipoDeLogradouro(String tipoDeLogradouro) {
+        this.tipoDeLogradouro = tipoDeLogradouro;
+    }
 }
