@@ -1,4 +1,4 @@
-package br.ufpr.sept.androidrestclient.br.ufpr.sept.androidrestclient.services;
+package br.ufpr.sept.androidrestclient.services;
 
 import android.os.AsyncTask;
 import android.util.Log;
@@ -11,7 +11,7 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.HashMap;
 
-import br.ufpr.sept.androidrestclient.br.ufpr.sept.androidrestclient.domain.Aluno;
+import br.ufpr.sept.androidrestclient.domain.Aluno;
 
 public class UpdateRequestTask extends AsyncTask<Aluno, Aluno, Aluno> {
 
@@ -27,7 +27,7 @@ public class UpdateRequestTask extends AsyncTask<Aluno, Aluno, Aluno> {
             return response.getBody();
 
         } catch (Exception e) {
-            Log.e("MainActivity", e.getMessage(), e);
+            Log.e("UpdateRequestTask", e.getMessage(), e);
         }
 
         return null;

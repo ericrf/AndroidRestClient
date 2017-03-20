@@ -1,8 +1,8 @@
-package br.ufpr.sept.androidrestclient.br.ufpr.sept.androidrestclient.services;
+package br.ufpr.sept.androidrestclient.services;
 
 import android.util.Log;
 
-import br.ufpr.sept.androidrestclient.br.ufpr.sept.androidrestclient.domain.Aluno;
+import br.ufpr.sept.androidrestclient.domain.Aluno;
 
 /**
  * Created by Eric on 16/03/2017.

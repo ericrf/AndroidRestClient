@@ -1,4 +1,4 @@
-package br.ufpr.sept.androidrestclient.br.ufpr.sept.androidrestclient.services;
+package br.ufpr.sept.androidrestclient.services;
 
 /**
  * Created by Eric on 15/03/2017.

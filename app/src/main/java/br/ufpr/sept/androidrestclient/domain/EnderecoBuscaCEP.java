@@ -1,16 +1,12 @@
-package br.ufpr.sept.androidrestclient.br.ufpr.sept.androidrestclient.domain;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
-
-import java.io.Serializable;
+package br.ufpr.sept.androidrestclient.domain;
 
 /**
  * Created by Eric on 08/03/2017.
  */
 
-public class Endereco implements Serializable{
+public class EnderecoBuscaCEP {
     private long id;
+    private String tipoDeLogradouro;
     private String logradouro;
     private String numero;
     private String complemento;
@@ -19,9 +15,9 @@ public class Endereco implements Serializable{
     private String cidade;
     private String estado;
 
-    public Endereco() {}
+    public EnderecoBuscaCEP() {}
 
-    public Endereco(long id, String logradouro, String numero, String complemento, String bairro, int cep, String cidade, String estado) {
+    public EnderecoBuscaCEP(long id, String logradouro, String numero, String complemento, String bairro, int cep, String cidade, String estado) {
         this.id = id;
         this.logradouro = logradouro;
         this.numero = numero;
@@ -41,7 +37,7 @@ public class Endereco implements Serializable{
     }
 
     public String getLogradouro() {
-        return logradouro;
+        return (tipoDeLogradouro == null ? "" : tipoDeLogradouro) + " " + logradouro;
     }
 
     public void setLogradouro(String logradouro) {
@@ -98,8 +94,23 @@ public class Endereco implements Serializable{
 
     @Override
     public String toString() {
-        return logradouro + ", nº " + numero + ", " + complemento
-                + ", " + bairro + ", " +  cidade + ", " + estado + " - " + String.valueOf(cep).replaceAll("([0-9]{2})([0-9]{3})([0-9]{3})", "$1.$2-$3");
+        return "Endereco{" +
+                "id=" + id +
+                ", logradouro='" + logradouro + '\'' +
+                ", numero='" + numero + '\'' +
+                ", complemento='" + complemento + '\'' +
+                ", bairro='" + bairro + '\'' +
+                ", cep=" + cep +
+                ", cidade='" + cidade + '\'' +
+                ", estado='" + estado + '\'' +
+                '}';
     }
 
+    public String getTipoDeLogradouro() {
+        return tipoDeLogradouro;
+    }
+
+    public void setTipoDeLogradouro(String tipoDeLogradouro) {
+        this.tipoDeLogradouro = tipoDeLogradouro;
+    }
 }

@@ -1,27 +1,21 @@
-package br.ufpr.sept.androidrestclient.br.ufpr.sept.androidrestclient.listadapters;
+package br.ufpr.sept.androidrestclient.listadapters;
 
 import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
 
 import java.util.List;
 
 import br.ufpr.sept.androidrestclient.R;
-import br.ufpr.sept.androidrestclient.UpdateAlunoActivity;
-import br.ufpr.sept.androidrestclient.br.ufpr.sept.androidrestclient.domain.Aluno;
+import br.ufpr.sept.androidrestclient.domain.Aluno;
 
 /**
  * Created by Eric on 19/03/2017.
  */
 
-public class AlunoListAdapter  extends BaseAdapter implements AdapterView.OnItemClickListener{
+public class AlunoListAdapter  extends BaseAdapter{
 
     private Context context;
     private List<Aluno> alunos;
@@ -52,10 +46,5 @@ public class AlunoListAdapter  extends BaseAdapter implements AdapterView.OnItem
         ((TextView)view.findViewById(R.id.nome)).setText(aluno.getNome());
         ((TextView)view.findViewById(R.id.endereco)).setText(aluno.getEnderecos().get(0).toString());
         return view;
-    }
-
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
     }
 }

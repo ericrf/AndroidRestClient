@@ -1,4 +1,4 @@
-package br.ufpr.sept.androidrestclient.br.ufpr.sept.androidrestclient.domain;
+package br.ufpr.sept.androidrestclient.domain;
 
 import java.io.Serializable;
 import java.util.List;
