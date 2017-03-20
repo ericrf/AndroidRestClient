@@ -48,11 +48,7 @@ public class AlunoListAdapter  extends BaseAdapter implements AdapterView.OnItem
     public View getView(int position, View convertView, ViewGroup parent) {
         View view = View.inflate(context, R.layout.item_alunos_list, null);
         Aluno aluno = alunos.get(position);
-        String matricula = String.valueOf(aluno.getMatricula());
-        while(matricula.length() < 5){
-            matricula = "0" + matricula;
-        }
-        ((TextView)view.findViewById(R.id.matricula)).setText(matricula);
+        ((TextView)view.findViewById(R.id.matricula)).setText(String.format("%05d", aluno.getMatricula()));
         ((TextView)view.findViewById(R.id.nome)).setText(aluno.getNome());
         ((TextView)view.findViewById(R.id.endereco)).setText(aluno.getEnderecos().get(0).toString());
         return view;
