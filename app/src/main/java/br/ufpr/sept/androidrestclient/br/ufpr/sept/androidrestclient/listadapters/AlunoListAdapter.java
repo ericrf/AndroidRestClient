@@ -1,8 +1,11 @@
 package br.ufpr.sept.androidrestclient.br.ufpr.sept.androidrestclient.listadapters;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
@@ -11,13 +14,14 @@ import org.w3c.dom.Text;
 import java.util.List;
 
 import br.ufpr.sept.androidrestclient.R;
+import br.ufpr.sept.androidrestclient.UpdateAlunoActivity;
 import br.ufpr.sept.androidrestclient.br.ufpr.sept.androidrestclient.domain.Aluno;
 
 /**
  * Created by Eric on 19/03/2017.
  */
 
-public class AlunoListAdapter  extends BaseAdapter{
+public class AlunoListAdapter  extends BaseAdapter implements AdapterView.OnItemClickListener{
 
     private Context context;
     private List<Aluno> alunos;
@@ -48,5 +52,10 @@ public class AlunoListAdapter  extends BaseAdapter{
         ((TextView)view.findViewById(R.id.matricula)).setText(String.valueOf(aluno.getMatricula()));
         ((TextView)view.findViewById(R.id.nome)).setText(aluno.getNome());
         return view;
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
     }
 }

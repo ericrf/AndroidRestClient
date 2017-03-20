@@ -21,6 +21,10 @@
         <activity
             android:name=".InserirAlunoActivity"
             android:label="@string/title_activity_inserir_aluno"></activity>
+
+        <activity
+            android:name=".UpdateAlunoActivity"
+            android:label="@string/title_activity_update_aluno"></activity>
     </application>
 
 </manifest>

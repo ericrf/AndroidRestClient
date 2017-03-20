@@ -5,6 +5,6 @@
     android:layout_height="match_parent"
     tools:context="br.ufpr.sept.androidrestclient.InserirAlunoActivity">
 
-    <include layout="@layout/content_inserir_aluno" />
+    <include layout="@layout/content_update_aluno" />
 
 </android.support.design.widget.CoordinatorLayout>

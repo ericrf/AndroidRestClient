@@ -29,4 +29,6 @@
     <string name="numero">Numero</string>
     <string name="title_activity_inserir_aluno">InserirAlunoActivity</string>
     <string name="salvar">Salvar</string>
+    <string name="remover">Remover</string>
+    <string name="title_activity_update_aluno">UpdateAlunoActivity</string>
 </resources>

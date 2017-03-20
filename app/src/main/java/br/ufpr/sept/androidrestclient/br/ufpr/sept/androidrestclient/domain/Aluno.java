@@ -1,8 +1,9 @@
 package br.ufpr.sept.androidrestclient.br.ufpr.sept.androidrestclient.domain;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Aluno {
+public class Aluno implements Serializable {
 
     private long matricula;
     private String cpf;

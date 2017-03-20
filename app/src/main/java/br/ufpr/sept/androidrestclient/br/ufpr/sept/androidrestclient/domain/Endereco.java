@@ -3,11 +3,13 @@ package br.ufpr.sept.androidrestclient.br.ufpr.sept.androidrestclient.domain;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.io.Serializable;
+
 /**
  * Created by Eric on 08/03/2017.
  */
 
-public class Endereco {
+public class Endereco implements Serializable{
     private long id;
     private String logradouro;
     private String numero;
