@@ -1,5 +1,6 @@
 package br.ufpr.sept.androidrestclient;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -52,7 +53,7 @@ public class InserirAlunoActivity extends AppCompatActivity implements AlunoForm
                 if(null == aluno){
                     //TODO: imprimir mensagem de erro
                 }else{
-                    Log.d("InsertRequestTask", aluno.toString());
+                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
                 }
             }
         }.execute(aluno);
