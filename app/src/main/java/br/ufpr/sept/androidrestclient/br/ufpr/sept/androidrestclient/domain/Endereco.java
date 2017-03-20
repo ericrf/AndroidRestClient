@@ -98,16 +98,8 @@ public class Endereco implements Serializable{
 
     @Override
     public String toString() {
-        return "Endereco{" +
-                "id=" + id +
-                ", logradouro='" + logradouro + '\'' +
-                ", numero='" + numero + '\'' +
-                ", complemento='" + complemento + '\'' +
-                ", bairro='" + bairro + '\'' +
-                ", cep=" + cep +
-                ", cidade='" + cidade + '\'' +
-                ", estado='" + estado + '\'' +
-                '}';
+        return logradouro + ", nº " + numero + ", " + complemento
+                + ", " + bairro + ", " +  cidade + ", " + estado + " - " + String.valueOf(cep).replaceAll("([0-9]{2})([0-9]{3})([0-9]{3})", "$1.$2-$3");
     }
 
 }
