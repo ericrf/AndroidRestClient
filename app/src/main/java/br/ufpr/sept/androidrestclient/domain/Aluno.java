@@ -63,11 +63,6 @@ public class Aluno implements Serializable {
 
     @Override
     public String toString() {
-        return "Aluno{" +
-                "matricula=" + matricula +
-                ", cpf='" + cpf + '\'' +
-                ", nome='" + nome + '\'' +
-                ", idade=" + idade +
-                '}';
+        return matricula + " " + nome;
     }
 }

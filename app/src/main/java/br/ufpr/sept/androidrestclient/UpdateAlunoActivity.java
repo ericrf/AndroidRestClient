@@ -63,7 +63,7 @@ public class UpdateAlunoActivity extends AbstractAlunoFormularioActivity {
             @Override
             protected void onPostExecute(Aluno aluno) {
                 if (null == aluno) {
-                    //TODO: imprimir mensagem de erro
+                    Toast.makeText(getApplicationContext(), "Erro ao atualizar aluno", Toast.LENGTH_LONG).show();
                 } else {
                     startMainActivity();
                 }
